@@ -1,4 +1,6 @@
 import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
 from scipy.stats import anderson
 from sklearn.preprocessing import LabelEncoder
 
@@ -79,12 +81,44 @@ def anderson_result_extractor(raw_anderson_result, significance_level):
         accepted_hypothesis = 'HA'
     return anderson_stat, critical_value, accepted_hypothesis
 
+def boxplot_for_outlier(data):
+    data=data.melt()
+    plt.figure(figsize=(15,10))
+    plt.title("Boxplots for Numerical variables")
+    bp=sns.boxplot(x='value',y='variable',data=data)
+    bp.set_xticklabels(bp.get_xticklabels())
+    plt.show()
+
 def outlier_counter(df, column):
     Q1 = df[column].describe()['25%']
     Q3 = df[column].describe()['75%']
     Iqr = Q3 - Q1
     upper = Q3 + 1.5 * Iqr
     lower = Q1 - 1.5 * Iqr
-    counter = len(df) - len(df[(df[column] >= lower) & (df[column] <= upper)][column])
+    detector = df[~((df[column] >= lower) & (df[column] <= upper))][column]
+    counter = len(detector)
     percentage = round(counter / len(df)*100, 2)
-    return counter, percentage
+    return counter, percentage, detector.index
+
+def univariate_outlier_report(df, outlier_columns):
+    counter_arr = []
+    percentage_arr = []
+
+    for i in outlier_columns:
+        counter, percentage, get_index = outlier_counter(df, i)
+        counter_arr.append(counter)
+        percentage_arr.append(percentage)
+
+    outlier_df = pd.DataFrame({
+        'Outlier Columns': outlier_columns,
+        'Outlier Count': counter_arr,
+        'Percentage': percentage_arr
+    })
+    return outlier_df
+
+def get_all_univariate_outlier_index(df, outlier_columns):
+    index_accumulator = []
+    for i in outlier_columns:
+        counter, percentage, get_index = outlier_counter(df, i)
+        index_accumulator += get_index.to_list()
+    return list(set(index_accumulator))
