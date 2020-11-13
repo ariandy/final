@@ -3,6 +3,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from scipy.stats import anderson
 from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import confusion_matrix
 
 def custom_desc(df):
     data_features = df.columns
@@ -122,3 +123,8 @@ def get_all_univariate_outlier_index(df, outlier_columns):
         counter, percentage, get_index = outlier_counter(df, i)
         index_accumulator += get_index.to_list()
     return list(set(index_accumulator))
+
+def cmx(y_true, y_pred):
+    cm = confusion_matrix(y_true, y_pred, labels=[1,0])
+    df = pd.DataFrame(cm, columns=['Pred 1', 'Pred 0'], index=['Act1', 'Act 0'])
+    return df
