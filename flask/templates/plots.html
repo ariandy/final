@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h1>Untuk visualisasi</h1>
+<div>
+    <h3>Attrition</h3>
+    <div class="chart", id="barplot_1">
+
+    </div>
+</div>
+
+<script>
+    var barplot_1 = {{ data | safe }}
+    Plotly.plot('barplot_1', barplot_1)
+</script>
+
+{% endblock body %}
