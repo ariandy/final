@@ -1,0 +1,117 @@
+{% extends "layout.html" %}
+
+<html>
+    <head>
+
+    </head>
+    <body>
+        {% block body %}
+            <div class="container pt 5">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 mt-3">
+                        <h3> Fill this form for Predict Attrition</h3>
+                        <form action="/prediction" method="POST">
+                            <!-- Age -->
+                            <input type="number" name="Age" class="form-control form-control-sm mt-2" max='70' min='17' placeholder='Age'>
+                            <!-- BusinessTravel -->
+                            <select class='form-control form-control-sm mt-2' name="BusinessTravel">
+                                <option value="" disabled selected>Travel frequency</option>
+                                {%for item in data_BusinessTravel %}
+                                    <option value="{{item}}">{{item}}</option>
+                                {% endfor %}
+                            </select>
+                            <!-- DailyRate -->
+                            <input type="number" name="DailyRate" class="form-control form-control-sm mt-2" max='1500' min='100' placeholder='DailyRate'>
+                            <!-- Department -->
+                            <select class='form-control form-control-sm mt-2' name="Department">
+                                <option value="" disabled selected>Select Department</option>
+                                {%for item in data_Department %}
+                                    <option value="{{item}}">{{item}}</option>
+                                {% endfor %}
+                            </select>
+                            <!-- DistanceFromHome -->
+                            <input type="number" name="DistanceFromHome" class="form-control form-control-sm mt-2" max='30' min='1' placeholder='DistanceFromHome'>
+                            <!-- Education -->
+                            <input type="number" name="Education" class="form-control form-control-sm mt-2" max='5' min='1' placeholder='Education'>
+                            <!-- EducationField -->
+                            <select class='form-control form-control-sm mt-2' name="EducationField">
+                                <option value="" disabled selected>Select EducationField</option>
+                                {%for item in data_EducationField %}
+                                    <option value="{{item}}">{{item}}</option>
+                                {% endfor %}
+                            </select>
+                            <!-- EnvironmentSatisfaction -->
+                            <input type="number" name="EnvironmentSatisfaction" class="form-control form-control-sm mt-2" max='4' min='1' placeholder='EnvironmentSatisfaction'>
+                            <!-- Gender -->
+                            <select class='form-control form-control-sm mt-2' name="Gender">
+                                <option value="" disabled selected>Select Gender</option>
+                                {%for item in data_Gender %}
+                                    <option value="{{item}}">{{item}}</option>
+                                {% endfor %}
+                            </select>
+                            <!-- HourlyRate -->
+                            <input type="number" name="HourlyRate" class="form-control form-control-sm mt-2" max='100' min='30' placeholder='HourlyRate'>
+                            <!-- JobInvolvement -->
+                            <input type="number" name="JobInvolvement" class="form-control form-control-sm mt-2" max='4' min='1' placeholder='JobInvolvement'>
+                            <!-- JobLevel -->
+                            <input type="number" name="JobLevel" class="form-control form-control-sm mt-2" max='5' min='1' placeholder='JobLevel'>
+                            <!-- JobRole -->
+                            <select class='form-control form-control-sm mt-2' name="JobRole">
+                                <option value="" disabled selected>Select JobRole</option>
+                                {%for item in data_JobRole %}
+                                    <option value="{{item}}">{{item}}</option>
+                                {% endfor %}
+                            </select>
+                            <!-- JobSatisfaction -->
+                            <input type="number" name="JobSatisfaction" class="form-control form-control-sm mt-2" max='4' min='1' placeholder='JobSatisfaction'>
+                            <!-- MaritalStatus -->
+                            <select class='form-control form-control-sm mt-2' name="MaritalStatus">
+                                <option value="" disabled selected>Select MaritalStatus</option>
+                                {%for item in data_MaritalStatus %}
+                                    <option value="{{item}}">{{item}}</option>
+                                {% endfor %}
+                            </select>
+                            <!-- MonthlyIncome -->
+                            <input type="number" name="MonthlyIncome" class="form-control form-control-sm mt-2" max='20000' min='1000' placeholder='MonthlyIncome'>
+                            <!-- MonthlyRate -->
+                            <input type="number" name="MonthlyRate" class="form-control form-control-sm mt-2" max='27000' min='2000' placeholder='MonthlyRate'>
+                            <!-- NumCompaniesWorked -->
+                            <input type="number" name="NumCompaniesWorked" class="form-control form-control-sm mt-2" max='15' min='0' placeholder='NumCompaniesWorked'>
+                            <!-- Overtime -->
+                            <select class='form-control form-control-sm mt-2' name="OverTime">
+                                <option value="" disabled selected>Select Overtime</option>
+                                {%for item in data_OverTime %}
+                                    <option value="{{item}}">{{item}}</option>
+                                {% endfor %}
+                            </select>
+                            <!-- PercentSalaryHike -->
+                            <input type="number" name="PercentSalaryHike" class="form-control form-control-sm mt-2" max='25' min='10' placeholder='PercentSalaryHike'>
+                            <!-- PerformanceRating -->
+                            <input type="number" name="PerformanceRating" class="form-control form-control-sm mt-2" max='4' min='3' placeholder='PerformanceRating'>
+                            <!-- RelationshipSatisfaction -->
+                            <input type="number" name="RelationshipSatisfaction" class="form-control form-control-sm mt-2" max='4' min='1' placeholder='RelationshipSatisfaction'>
+                            <!-- StockOptionLevel -->
+                            <input type="number" name="StockOptionLevel" class="form-control form-control-sm mt-2" max='3' min='0' placeholder='StockOptionLevel'>
+                            <!-- TotalWorkingYears -->
+                            <input type="number" name="TotalWorkingYears" class="form-control form-control-sm mt-2" max='50' min='0' placeholder='TotalWorkingYears'>
+                            <!-- TrainingTimesLastYear -->
+                            <input type="number" name="TrainingTimesLastYear" class="form-control form-control-sm mt-2" max='10' min='0' placeholder='TrainingTimesLastYear'>
+                            <!-- WorkLifeBalance -->
+                            <input type="number" name="WorkLifeBalance" class="form-control form-control-sm mt-2" max='4' min='1' placeholder='WorkLifeBalance'>
+                            <!-- YearsAtCompany -->
+                            <input type="number" name="YearsAtCompany" class="form-control form-control-sm mt-2" max='50' min='0' placeholder='YearsAtCompany'>
+                            <!-- YearsInCurrentRole -->
+                            <input type="number" name="YearsInCurrentRole" class="form-control form-control-sm mt-2" max='25' min='0' placeholder='YearsInCurrentRole'>
+                            <!-- YearsSinceLastPromotion -->
+                            <input type="number" name="YearsSinceLastPromotion" class="form-control form-control-sm mt-2" max='25' min='0' placeholder='YearsSinceLastPromotion'>
+                            <!-- YearsWithCurrManager -->
+                            <input type="number" name="YearsWithCurrManager" class="form-control form-control-sm mt-2" max='25' min='0' placeholder='YearsWithCurrManager'>
+
+                            <button type="submit" class="btn btn-success mt-4">Predict!!</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% endblock body %}
+    </body>
+</html>

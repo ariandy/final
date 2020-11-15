@@ -1,17 +1,37 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-<h1>Untuk visualisasi</h1>
-<div>
-    <h3>Attrition</h3>
-    <div class="chart", id="barplot_1">
-
+<h1>Visualisasi</h1>
+<div class="row">
+    <div class='col-md-6'>
+        <h3>Attrition Pie Chart</h3>
+        <div class="chart" id='attrition_pie_chart'></div>
+    </div>
+    <div class="col-md-6">
+        <h3>Age Distplot</h3>
+        <div class="chart" id='age_distplot'></div>
     </div>
 </div>
-
+<div class="row">
+    <div class='col-md-6'>
+        <h3>Age & TotalWorkingYears</h3>
+        <div class="chart" id='age_totalworkingyears_distplot'></div>
+    </div>
+    <div class="col-md-6">
+        <h3>Gender & EducationField</h3>
+        <div class="chart" id='gender_educationfield_composition'></div>
+    </div>
+</div>
 <script>
-    var barplot_1 = {{ data | safe }}
-    Plotly.plot('barplot_1', barplot_1)
+    var attrition_pie_chart = {{ data | safe }}
+    var age_distplot = {{ data2 | safe }}
+    var age_totalworkingyears_distplot = {{ data3 | safe }}
+    var gender_educationfield_composition = {{ data4 | safe }}
+    
+    Plotly.plot('attrition_pie_chart', attrition_pie_chart)
+    Plotly.plot('age_distplot', age_distplot)
+    Plotly.plot('age_totalworkingyears_distplot', age_totalworkingyears_distplot)
+    Plotly.plot('gender_educationfield_composition', gender_educationfield_composition)
 </script>
 
 {% endblock body %}

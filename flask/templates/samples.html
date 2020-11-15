@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h1>Samples</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            {% for item in data.columns %}
+                <th> {{item}} </th>
+            {% endfor%}
+        </tr>
+    </thead>
+    <tbody>
+        {% for index, item in data.iterrows()%}
+            <tr>
+                {%for col in item%}
+                    <td> {{col}} </td>
+                {% endfor%}
+            </tr>
+        {% endfor%}
+    </tbody>
+</table>
+{% endblock body %}
