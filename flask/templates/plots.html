@@ -22,6 +22,9 @@
         <div class="chart" id='gender_educationfield_composition'></div>
     </div>
 </div>
+<div>
+    <img src="{{url_for('static',filename='img/bivariate.png')}}" alt="">
+</div>
 <script>
     var attrition_pie_chart = {{ data | safe }}
     var age_distplot = {{ data2 | safe }}
