@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_from_directory, current_app
 
 from cleaning_data import employee_rank_by, dataset
 from plotting import attrition_pie_chart, age_distplot, age_totalworkingyears_distplot, gender_educationfield_composition
@@ -15,12 +15,14 @@ from prediction import get_unique, predictor
 # from flask import Flask, render_template, send_file
 # -------------------------- Experimental purpose
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='', 
+            static_folder='templates/static'
+)
 
 # Home
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return current_app.send_static_file('index.html')
 
 # Sample
 @app.route('/samples')
