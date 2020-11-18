@@ -46,3 +46,41 @@ Semua pengerjaan dilakukan di Lenovo T450, prosesor i5 vPro Gen 4th. (tahun rili
 
 Tiny, Medium dan Heavy adalah skala yang bersifat subjektif, yang saya buat berdasarkan durasi yang diperlukan (waktu komputasi) di laptop saya.
 Misal, bisa saja sebuah grid memakan waktu yang sedang-sedang saja pada laptop saya (Medium), namun ternyata bisa lebih cepat di laptop lain (yang spec-nya lebih mumpuni tentunya), atau bahkan lebih lambat daripada laptop saya. Sehingga ini tidak bisa menjadi patokan objektif.
+
+# Notes
+
+Link pada laman Home ditulis secara hardcode. Ubah portnya semisal bertabrakan dengan port yang sudah dipakai.
+
+# Next Improvement for this project
+
+### Analysis aspects
+- Melakukan EDA lebih dalam lagi (contohnya bivariate analysis dengan feature lainnya selain target) untuk mencari temuan-temuan lainnya.
+
+### Modeling aspects
+- Mencoba menggunakan algoritma lain
+- Melakukan tuning yang lebih complex
+- Mencoba dengan metrics F1-Score
+
+### Programming aspects
+- Membuat estimator SkippablePCA agar GridSearchCV bisa memilih untuk melakukan skip atau tidak pada PCA
+- Mengubah flow pengerjaan agar bisa membuat pipeline end-to-end (dari data benar-benar raw, sampai dengan menjadi model).
+- Masih berhubungan dengan point ke dua, mengkonversi beberapa fungsi yang berguna untuk data cleaning menjadi FunctionTransformer agar bisa digunakan dalam pembuatan end-to-end pipeline.
+- Membuat logging (dan export ke text file) disaat melakukan fit. Berguna untuk train beberapa model sekaligus dalam waktu yang lama.
+
+### Front-End aspects
+
+- Memperbaiki tampilan dashboard
+- Melakukan render pada Seaborn/Pyplot plot dan langsung di-embed ke dashboard (tanpa harus menyimpan gambarnya, meletakkannya di direktori `static` dan memanggilanya secara hardcode) 
+- Melakukan modularitas pada laman Home agar tidak perlu melakukan hardcode link untuk berpindah antar laman (dari halaman depan)
+
+### Back-End aspects
+
+- Membuat unit test untuk beberapa fungsi yang riskan (contohnya, fungsi yang ada berhubungan dengan app.py yang harus diperiksa lewat Jupyter Notebook untuk mengetahui resultnya benar atau tidak) agar mempermudah saya dalam melakukan scaling pada fungsi tertentu.
+
+### Quality Assurance aspects
+
+- Membuat Testcafe Script untuk melakukan Automated Test pada laman `predict`
+
+### Documentation aspects
+
+- Maintain dokumentasi github, comments pada code ataupun Jupyter notebook agar proyek tetap reproducable disaat saya ingin melanjutkannya di lain hari, meningkatkan readability pada code dan mempermudah saya untuk mentracking error apabila harus melakukan scale pada fungsi tertentu.
