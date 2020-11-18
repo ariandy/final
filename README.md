@@ -28,8 +28,21 @@ Kita adalah seorang Data Scientist yang bekerja pada perusahaan multinasional. H
 
 # Dataset
 
-... soon
+... soon (Bisa dilihat di Notebook #1)
 
 # Workflows
 
+![Workflows](https://raw.githubusercontent.com/ariandy/final/master/workflows.png)
+
 # Model Selection
+
+![Model Selection](https://raw.githubusercontent.com/ariandy/final/master/model_selection.png)
+
+- `*` cv=5, Medium Grid
+- `**` cv = 8. Heavy Grid , Post-Pruning
+- `***` cv = 8, Tiny Grid, Post-Pruning
+
+Semua pengerjaan dilakukan di Lenovo T450, prosesor i5 vPro Gen 4th. (tahun rilis 2015).
+
+Tiny, Medium dan Heavy adalah skala yang bersifat subjektif, yang saya buat berdasarkan durasi yang diperlukan (waktu komputasi) di laptop saya.
+Misal, bisa saja sebuah grid memakan waktu yang sedang-sedang saja pada laptop saya (Medium), namun ternyata bisa lebih cepat di laptop lain (yang spec-nya lebih mumpuni tentunya), atau bahkan lebih lambat daripada laptop saya. Sehingga ini tidak bisa menjadi patokan objektif.
