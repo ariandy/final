@@ -77,7 +77,7 @@ def prediction():
         data['YearsSinceLastPromotion'] = int(data['YearsSinceLastPromotion'])
         data['YearsWithCurrManager'] = int(data['YearsWithCurrManager'])
         result = predictor(data)[0][1]
-        conclusion1 = "Kemungkinan pegawai tersebut untuk keluar adalah " + str(round(result,2)*100) + "%."
+        conclusion1 = "Kemungkinan pegawai tersebut untuk keluar adalah " + str(round(result,3)*100) + "%."
         conclusion2 = "Maka dengan nilai probabilitas tersebut, pegawai diprediksi "
         result_by_word = ''
         if result > 0.5:
