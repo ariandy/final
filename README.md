@@ -117,6 +117,10 @@ weighted avg       0.84      0.39      0.42       258
 - Ke direktori `flask`, lalu jalankan `python app.py`
 - Pada browser, masuk ke localhost:9292
 - Model dapat digunakan pada localhost:9292/prediction
+![Data Sample](https://raw.githubusercontent.com/ariandy/purwadhika-final-project-attrition-problem/master/flask_picture/1.png)
+![Rank](https://raw.githubusercontent.com/ariandy/purwadhika-final-project-attrition-problem/master/flask_picture/4.png)
+![Visualization](https://raw.githubusercontent.com/ariandy/purwadhika-final-project-attrition-problem/master/flask_picture/3.png)
+![Prediction](https://raw.githubusercontent.com/ariandy/purwadhika-final-project-attrition-problem/master/flask_picture/2.png)
 
 # Notes
 Link pada laman Home ditulis secara hardcode. Ubah portnya semisal bertabrakan dengan port yang sudah dipakai.
